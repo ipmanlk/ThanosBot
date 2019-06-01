@@ -1,9 +1,12 @@
 const parse = (str, data) => {
     try {
+        let memberId = (data.member) ? data.member.id : data.id;
+        let memberName = data.displayName || data.member.displayName;
+
         const keyValue = {
             "{server}": `${data.guild.name}`,
-            "{@user}": `<@${data.id}>`,
-            "{user}": `${data.displayName}`,
+            "{@user}": `<@${memberId}>`,
+            "{user}": `${memberName} `,
         };
 
         let parsedText = str;
