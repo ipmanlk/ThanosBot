@@ -8,7 +8,7 @@
         "enabled": true
     },
     "values": {
-        "channel": "general",
+        "channel": false,
         "delMsg": "{@user}'s message was deleted for spamming!."
     },
     "dependencies": []

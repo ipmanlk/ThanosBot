@@ -4,7 +4,12 @@ const Parser = require("../../libs/parser");
 
 const handle = (client, msg) => {
     if (checkMsg(msg.content)) {
-        const channel = client.channels.find(channels => channels.name === Config.values.channel);
+        let channel;
+        if (Config.values.channel) {
+            channel = client.channels.find(channels => channels.name === Config.values.channel);
+        } else {
+            channel = msg.channel;
+        }
         channel.send(Parser.parse(Config.values.delMsg, msg));
         msg.delete();
     }
