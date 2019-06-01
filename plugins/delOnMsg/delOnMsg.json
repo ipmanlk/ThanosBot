@@ -1,0 +1,15 @@
+{
+    "info": {
+        "name": "delOnMsg",
+        "desc": "Delete msgs based on regex",
+        "category": "automod",
+        "event": "message",
+        "trigger": "auto",
+        "enabled": true
+    },
+    "values": {
+        "channel": "general",
+        "delMsg": "{@user}'s message was deleted for spamming!."
+    },
+    "dependencies": []
+}
