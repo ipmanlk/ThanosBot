@@ -1,0 +1,18 @@
+{
+    "info": {
+        "name": "avatar",
+        "desc": "get the avatar of a user",
+        "category": "info",
+        "event": "message",
+        "trigger": "manual",
+        "enabled": true
+    },
+    "values": {},
+    "roles": {
+        "allowed": [],
+        "disallowed": [
+            "Bots"
+        ]
+    },
+    "dependencies": []
+}
