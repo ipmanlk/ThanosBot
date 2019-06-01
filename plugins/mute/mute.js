@@ -12,7 +12,7 @@ const handle = (client, msg) => {
     }
 
     // check mute role exists
-    if (!getRole(msg, "Mute")) {
+    if (!getRole(msg, "[Thanos] Muted")) {
         createRole(client, msg);
     } else {
         handleMute(client, msg);
@@ -22,8 +22,8 @@ const handle = (client, msg) => {
 // handle mute event
 const handleMute = (client, msg) => {
 
-    const mention = msg.content.split(`${Prefix}mute`)[1].split(" ")[1] || false;
-    const time = msg.content.split(`${Prefix}mute`)[1].split(" ")[2] || false;
+    const mention = msg.content.split(`${Prefix}${Config.info.name}`)[1].split(" ")[1] || false;
+    const time = msg.content.split(`${Prefix}${Config.info.name}`)[1].split(" ")[2] || false;
 
     // check metion exists
     if (mention) {
@@ -48,7 +48,7 @@ const handleMute = (client, msg) => {
 
 // mute permenently
 const mute = (member, msg) => {
-    member.addRole(getRole(msg, "Mute"))
+    member.addRole(getRole(msg, "[Thanos] Muted"))
         .then(() => {
             msg.channel.send(`<@${member.id}> has been muted!`);
         })
@@ -59,13 +59,13 @@ const mute = (member, msg) => {
 
 // temporary mute based on time
 const muteTemp = (member, msg, time) => {
-    member.addRole(getRole(msg, "Mute"))
+    member.addRole(getRole(msg, "[Thanos] Muted"))
         .then(() => {
             msg.channel.send(`<@${member.id}> has been muted for ${time}m!.`);
 
             // timeout to unmute
             setTimeout(() => {
-                member.removeRole(getRole(msg, "Mute"))
+                member.removeRole(getRole(msg, "[Thanos] Muted"))
                     .then(() => {
                         msg.channel.send(`<@${member.id}> has been unmuted automatically!.`);
                     })
@@ -101,7 +101,7 @@ const getRole = (msg, roleName) => {
 // create mute role 
 const createRole = (client, msg) => {
     msg.guild.createRole({
-        name: "Mute",
+        name: "[Thanos] Muted",
     }).then(role => {
         console.log(`Created new role with name ${role.name} and color ${role.color}`);
         // upgrade permissions for each channel to mute role

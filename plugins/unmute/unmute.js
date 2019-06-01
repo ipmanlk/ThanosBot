@@ -17,7 +17,7 @@ const handle = (client, msg) => {
 // handle mute event
 const handleUnmute = (client, msg) => {
 
-    const mention = msg.content.split(`${Prefix}unmute`)[1].split(" ")[1] || false;
+    const mention = msg.content.split(`${Prefix}${Config.info.name}`)[1].split(" ")[1] || false;
 
     // check metion exists
     if (mention) {
@@ -37,7 +37,7 @@ const handleUnmute = (client, msg) => {
 
 // unmute the user
 const unmute = (member, msg) => {
-    let muteRole = getRole(member, "Mute");
+    let muteRole = getRole(member, "[Thanos] Muted");
 
     if (muteRole) {
         member.removeRole(muteRole)

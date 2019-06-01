@@ -16,7 +16,7 @@ const handle = (client, msg) => {
 
 const handlePurge = (client, msg) => {
     // get num of msgs to delete
-    const num = msg.content.split(`${Prefix}purge`)[1].split(" ")[1] || false;
+    const num = msg.content.split(`${Prefix}${Config.info.name}`)[1].split(" ")[1] || false;
 
     // check if num is present
     if (num) {
