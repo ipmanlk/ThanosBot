@@ -32,6 +32,12 @@ const registerListeners = () => {
         if (msg.content.startsWith(Config.BOT_PREFIX)) {
             handleManualCommand(msg);
         }
+        
+        // auto plugins
+        Plugins.auto.message.forEach(p => {
+            const plugin = require(`../plugins/${p}/${p}`);
+            plugin.handle(client, msg);
+        });
     });
 };
 
