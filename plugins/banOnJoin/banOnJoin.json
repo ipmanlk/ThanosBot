@@ -1,0 +1,15 @@
+{
+    "info": {
+        "name": "banOnJoin",
+        "desc": "Ban members on join based on regex",
+        "category": "automod",
+        "event": "guildMemberAdd",
+        "trigger": "auto",
+        "enabled": true
+    },
+    "values": {
+        "channel": "general",
+        "banMsg": "`{user} was banned (Auto Ban)!`"
+    },
+    "dependencies": []
+}

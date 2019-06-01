@@ -1,0 +1,15 @@
+{
+    "info": {
+        "name": "welcome",
+        "desc": "Welcome new users",
+        "category": "misc",
+        "event": "guildMemberAdd",
+        "trigger": "auto",
+        "enabled": true
+    },
+    "values": {
+        "welcomeMsg": "Hey {@user}, welcome to **{server}** 🎉🤗 !",
+        "channel": "general"
+    },
+    "dependencies": []
+}

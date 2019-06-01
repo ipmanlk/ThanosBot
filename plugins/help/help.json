@@ -1,0 +1,20 @@
+{
+    "info": {
+        "name": "help",
+        "desc": "get help",
+        "category": "info",
+        "event": "message",
+        "trigger": "manual",
+        "enabled": true
+    },
+    "values": {},
+    "roles": {
+        "allowed": [
+            "Sons of Thanos"
+        ],
+        "disallowed": [
+            "Bots"
+        ]
+    },
+    "dependencies": []
+}

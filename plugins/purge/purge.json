@@ -1,0 +1,20 @@
+{
+    "info": {
+        "name": "purge",
+        "desc": "delete msgs in a channel",
+        "category": "moderator",
+        "event": "message",
+        "trigger": "manual",
+        "enabled": true
+    },
+    "values": {},
+    "roles": {
+        "allowed": [
+            "Sons of Thanos"
+        ],
+        "disallowed": [
+            "Bots"
+        ]
+    },
+    "dependencies": []
+}

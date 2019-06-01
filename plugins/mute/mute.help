@@ -1,0 +1,4 @@
+<prefix>mute <mention>
+<prefix>mute <metion> <number (min)>
+**Example:**
+<prefix>mute @user 2 

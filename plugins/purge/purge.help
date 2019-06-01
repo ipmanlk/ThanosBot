@@ -1,0 +1,2 @@
+<prefix>purge all - Delete every msg.
+<prefix>purge <number> - Delete custom num of msgs.
