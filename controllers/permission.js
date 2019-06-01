@@ -18,6 +18,14 @@ const check = (msg, allowed = [], disallowed = []) => {
     return (roleAllowed && !roleDisallowed);
 };
 
+// check if user is an admin
+const checkAdmin = (msg) => {
+    if (msg.member.hasPermission("ADMINISTRATOR")) {
+        return true;
+    }
+};
+
 module.exports = {
-    check
+    check,
+    checkAdmin
 };
