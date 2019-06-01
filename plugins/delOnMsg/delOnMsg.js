@@ -1,8 +1,14 @@
 const Config = require("./delOnMsg.json");
 const { resolve } = require("path");
 const Parser = require("../../libs/parser");
+const Permission = require("../../controllers/permission");
 
 const handle = (client, msg) => {
+    // ignore if user is an admin
+    if (Permission.checkAdmin(msg)) {
+        return;
+    }
+
     if (checkMsg(msg.content)) {
         let channel;
         if (Config.values.channel) {
