@@ -20,7 +20,7 @@ const check = (msg, allowed = [], disallowed = []) => {
 
 // check if user is an admin
 const checkAdmin = (msg) => {
-    if (msg.member.hasPermission("ADMINISTRATOR")) {
+    if (msg.member && msg.member.hasPermission("ADMINISTRATOR")) {
         return true;
     }
 };
