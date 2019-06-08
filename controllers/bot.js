@@ -4,11 +4,12 @@ let Plugins;
 let client;
 
 const init = () => {
-    Plugins = (require("./plugins").getPlugins());
+    // create new client
     client = new DiscordJs.Client();
-
+    // load plugins
+    Plugins = (require("./plugins").getPlugins());
+    // register event listeners
     registerListeners();
-
     // login to client
     client.login(Config.BOT_TOKEN);
 };
@@ -56,6 +57,7 @@ const handleManualCommand = (msg) => {
 const reloadBot = () => {
     try {
         client.destroy().then(client.login(Config.BOT_TOKEN));
+        Plugins = (require("./plugins").getPlugins());
     } catch (error) {
         console.log(error);
     }
