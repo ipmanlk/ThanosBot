@@ -1,9 +1,12 @@
 const Permission = require("../../controllers/permission");
 const Config = require("./thanos.json");
-const Plugins = require("../../controllers/plugins").getPlugins();
+let Plugins;
 
 
 const handle = (client, msg) => {
+    // load plugins
+    Plugins = require("../../controllers/plugins").getPlugins();
+    
     // check perms
     if (!Permission.check(msg, Config.roles.allowed, Config.roles.disallowed)) {
         return;

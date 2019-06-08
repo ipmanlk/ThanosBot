@@ -1,10 +1,12 @@
 const Permission = require("../../controllers/permission");
 const Config = require("./help.json");
 const Prefix = require("../../settings/config.json").BOT_PREFIX;
-const Plugins = require("../../controllers/plugins").getPlugins();
+let Plugins;
 const { resolve } = require("path");
 
 const handle = (client, msg) => {
+    // load plugins
+    Plugins = require("../../controllers/plugins").getPlugins();
 
     // check perms
     if (!Permission.check(msg, Config.roles.allowed, Config.roles.disallowed)) {
