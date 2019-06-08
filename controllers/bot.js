@@ -1,22 +1,17 @@
 const DiscordJs = require("discord.js");
-const Plugins = (require("./plugins").getPlugins());
 const Config = require("../settings/config.json");
-// new discord client
-const client = new DiscordJs.Client();
-
+let Plugins;
+let client;
 
 const init = () => {
+    Plugins = (require("./plugins").getPlugins());
+    client = new DiscordJs.Client();
+
     registerListeners();
 
     // login to client
     client.login(Config.BOT_TOKEN);
 };
-
-// when bot is ready
-client.on("ready", () => {
-    // set status
-    client.user.setActivity(`Watching ${client.guilds.size} servers | By ipmanlk@LKDevelopers🇱🇰`);
-});
 
 // event listeners 
 const registerListeners = () => {
@@ -32,12 +27,18 @@ const registerListeners = () => {
         if (msg.content.startsWith(Config.BOT_PREFIX)) {
             handleManualCommand(msg);
         }
-        
+
         // auto plugins
         Plugins.auto.message.forEach(p => {
             const plugin = require(`../plugins/${p}/${p}`);
             plugin.handle(client, msg);
         });
+    });
+
+    // when bot is ready
+    client.on("ready", () => {
+        // set status
+        client.user.setActivity(`Watching ${client.guilds.size} servers | By ipmanlk@LKDevelopers🇱🇰`);
     });
 };
 
@@ -51,7 +52,16 @@ const handleManualCommand = (msg) => {
     }
 };
 
+// destory and restart current bot
+const reloadBot = () => {
+    try {
+        client.destroy().then(client.login(Config.BOT_TOKEN));
+    } catch (error) {
+        console.log(error);
+    }
+};
 
 module.exports = {
-    init
+    init,
+    reloadBot
 };
