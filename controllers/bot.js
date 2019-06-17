@@ -39,7 +39,7 @@ const registerListeners = () => {
     // when bot is ready
     client.on("ready", () => {
         // set status
-        client.user.setActivity(`Watching ${client.guilds.size} servers | By ipmanlk@LKDevelopers🇱🇰`);
+        client.user.setActivity(`Reality can be whatever I want`);
     });
 };
 
